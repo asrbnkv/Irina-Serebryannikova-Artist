@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Irina Serebriannikova — painter and art teacher</title>
+<meta name="description" content="Irina Serebriannikova, painter and art teacher. The website opens soon. Ирина Серебрянникова — художник и педагог.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Irina Serebriannikova — painter and art teacher">
+<meta property="og:description" content="The website opens soon. Сайт откроется в ближайшее время.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta name="theme-color" content="#31493F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2331493F'/%3E%3Crect x='8' y='6' width='16' height='20' fill='none' stroke='%23CDB27A' stroke-width='3'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --wall: #31493F;
+    --wall-lit: #40604F;
+    --wall-ink: #E8E5DA;
+    --wall-ink-soft: #B7C1B4;
+    --gilt: #A98C55;
+    --gilt-light: #CDB27A;
+    --gilt-dark: #6E5A33;
+    --paper: #F3F2EC;
+    --ink: #1E2320;
+    --ink-soft: #565C57;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; }
+
+  body {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    background-color: var(--wall);
+    background-image: radial-gradient(ellipse 75% 60% at 50% -5%, var(--wall-lit), var(--wall) 72%);
+    color: var(--wall-ink);
+    font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wall {
+    display: grid;
+    grid-template-columns: auto minmax(0, 320px);
+    align-items: end;
+    align-content: center;
+    justify-content: center;
+    gap: clamp(40px, 6vw, 96px);
+    padding: clamp(48px, 10vh, 120px) 24px 48px;
+  }
+
+  /* The frame hangs from a nail; it swings once on load, then settles. */
+  .hanging {
+    position: relative;
+    padding-top: 56px;
+    transform-origin: 50% 0;
+    animation: settle 1.8s cubic-bezier(.25, .7, .3, 1) both;
+  }
+
+  .nail {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 7px;
+    height: 7px;
+    margin-left: -3.5px;
+    border-radius: 50%;
+    background: var(--gilt-dark);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+  }
+
+  .wire {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 100%;
+    height: 53px;
+    overflow: visible;
+  }
+
+  .frame {
+    width: clamp(220px, 28vw, 340px);
+    aspect-ratio: 4 / 5;
+    border: 16px solid var(--gilt);
+    border-color: var(--gilt-light) var(--gilt) var(--gilt-dark) var(--gilt);
+    background: rgba(0, 0, 0, .07);
+    box-shadow:
+      inset 0 0 0 2px var(--gilt-dark),
+      inset 0 8px 18px rgba(0, 0, 0, .35),
+      0 22px 34px -14px rgba(0, 0, 0, .6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .35rem;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .frame p {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    color: var(--wall-ink);
+  }
+
+  .frame p[lang="ru"] {
+    font-size: 1rem;
+    color: var(--wall-ink-soft);
+  }
+
+  /* Museum wall label */
+  .label {
+    background: var(--paper);
+    color: var(--ink);
+    padding: 22px 24px 20px;
+    font-size: .875rem;
+    line-height: 1.5;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 14px -8px rgba(0, 0, 0, .45);
+    margin-bottom: 8%;
+  }
+
+  .label h1 {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.3;
+    font-weight: 700;
+  }
+
+  .label p { margin: 0; }
+
+  .label p + p { margin-top: .9rem; }
+
+  .label .name-alt { margin-top: .1rem; color: var(--ink-soft); }
+
+  .label .alt { display: block; color: var(--ink-soft); }
+
+  .label a {
+    color: var(--ink);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+  }
+
+  .label a:hover { text-decoration-thickness: 2px; }
+
+  .label a:focus-visible {
+    outline: 2px solid var(--gilt-dark);
+    outline-offset: 3px;
+  }
+
+  footer {
+    padding: 0 24px 20px;
+    text-align: center;
+    font-size: .75rem;
+    color: var(--wall-ink-soft);
+  }
+
+  @keyframes settle {
+    0%   { transform: rotate(2.4deg); }
+    30%  { transform: rotate(-1.4deg); }
+    55%  { transform: rotate(.7deg); }
+    78%  { transform: rotate(-.25deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hanging { animation: none; }
+  }
+
+  @media (max-width: 680px) {
+    .wall {
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: center;
+      align-items: start;
+      gap: 40px;
+      padding-top: 40px;
+    }
+    .frame { width: min(62vw, 280px); }
+    .label { margin-bottom: 0; max-width: 360px; width: 100%; }
+  }
+</style>
+</head>
+<body>
+  <main class="wall">
+    <div class="hanging">
+      <span class="nail" aria-hidden="true"></span>
+      <svg class="wire" viewBox="0 0 100 53" preserveAspectRatio="none" aria-hidden="true">
+        <polyline points="20,53 50,1 80,53" fill="none" stroke="#B7C1B4" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <div class="frame">
+        <p>Installation in progress</p>
+        <p lang="ru">Идёт развеска</p>
+      </div>
+    </div>
+
+    <section class="label" aria-label="About the artist">
+      <h1>Irina Serebriannikova</h1>
+      <p class="name-alt" lang="ru">Ирина Серебрянникова</p>
+
+      <p>Painter and art teacher
+        <span class="alt" lang="ru">Художник и педагог</span></p>
+
+      <p>The website opens soon.
+        <span class="alt" lang="ru">Сайт откроется в ближайшее время.</span></p>
+
+      <p>From 23 to 25 October 2026, her work is on show at the Art Shopping fair, Carrousel du Louvre, Paris.
+        <span class="alt" lang="ru">С 23 по 25 октября 2026 года работы Ирины можно увидеть на салоне Art Shopping в Carrousel du Louvre в Париже.</span></p>
+
+      <p>Contact Irina
+        <span class="alt" lang="ru">Связаться с Ириной</span>
+        <a href="mailto:serebriannikovairina@gmail.com">serebriannikovairina@gmail.com</a></p>
+    </section>
+  </main>
+
+  <footer>© 2026 Irina Serebriannikova</footer>
+</body>
+</html>
